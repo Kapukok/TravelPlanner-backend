@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from app.api.routes import generate_travel_plan
@@ -27,4 +29,4 @@ async def handle_generate_plan():
 
 
 if __name__ == "__main__":
-  app.run(host="0.0.0.0", port=8000, debug=True)
+  app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 10000)))
